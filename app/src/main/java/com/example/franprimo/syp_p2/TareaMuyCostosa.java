@@ -5,7 +5,7 @@ import android.util.Log;
 /**
  * Created by FranPrimo on 18/12/15.
  */
-public class TareaMuyCostosa extends Thread {
+public class TareaMuyCostosa extends Thread implements Runnable{
     private String TAG = "Practica 2 SYP: ";
     private volatile boolean threadStoped = false;
 
