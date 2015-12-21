@@ -7,7 +7,7 @@ import android.util.Log;
  */
 public class TareaMuyCostosa extends Thread implements Runnable{
     private String TAG = "Practica 2 SYP: ";
-    private volatile boolean threadStoped = false;
+    private static volatile boolean threadStoped = false;
 
     public void stopThread(){
         threadStoped = true;
@@ -18,9 +18,9 @@ public class TareaMuyCostosa extends Thread implements Runnable{
         Log.i(TAG, "Tarea muy costosa iniciada");
         try{
             for(int i=0; i<100; i++) {
-                if(threadStoped) break;
                 Log.i(TAG, "Tarea muy costosa en marcha");
                 Thread.sleep(1000);
+                if(threadStoped) break;
             }
         }catch (InterruptedException e) {
             Thread.currentThread().interrupt();

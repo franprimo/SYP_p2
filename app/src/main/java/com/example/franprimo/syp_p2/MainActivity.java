@@ -13,7 +13,6 @@ public class MainActivity extends Activity {
 
     private String TAG = "Practica 2 SYP: ";
     TareaMuyCostosa tmc = new TareaMuyCostosa();
-    Thread t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,6 @@ public class MainActivity extends Activity {
 
     public void ejecutarWork(){
         new Thread(new TareaMuyCostosa()).start();
-
     }
 
     public void detenerWork(){
