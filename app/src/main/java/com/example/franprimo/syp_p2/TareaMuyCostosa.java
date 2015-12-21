@@ -17,19 +17,18 @@ public class TareaMuyCostosa extends Thread implements Runnable {
     @Override
     public void run(){
         Log.i(TAG, "Tarea muy costosa iniciada");
-        while(true){
-            if(threadStoped){
-                Log.i(TAG, "Y aqui tambien llega");
-                break;
-            }
-            try{
-                for(int i=0; i<100; i++) {
+        try{
+            for(int i=0; i<100; i++) {
+                if(threadStoped) {
+                    Log.i(TAG, "Y aqui tambien llega");
+                    break;
+                }else{
                     Log.i(TAG, "Tarea muy costosa en marcha");
                     Thread.sleep(1000);
                 }
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
             }
+        }catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
         Log.i(TAG, "Tarea muy costosa finalizada");
     }
